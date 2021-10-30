@@ -14,6 +14,9 @@
     <string name="forgot_password">Forgot password ?</string>
     <string name="dont_have_Acount">Don\'t have account ?</string>
     <string name="create_account">Create account</string>
+    \
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
     <string-array name="filter_spinner_elements">
         <item>All Tasks</item>

@@ -5,6 +5,8 @@ import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
 
 class AddTaskDaialog : DialogFragment() {
 
@@ -16,5 +18,15 @@ class AddTaskDaialog : DialogFragment() {
         return inflater.inflate(R.layout.fragment_add_task_daialog, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        var cancelButton:Button= view.findViewById(R.id.cancel_add_button)
+
+        cancelButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
 
 }
