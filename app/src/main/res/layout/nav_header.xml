@@ -3,15 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    android:orientation="vertical"
-    >
+    android:layout_marginTop="25dp"
+    android:orientation="vertical">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:src="@drawable/person3"/>
+        android:src="@drawable/person3" />
 
     <TextView
         android:id="@+id/textView"

@@ -1,4 +1,4 @@
-package com.example.todoapplication
+package com.example.todoapplication.body
 
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.todoapplication.R
 
 class AddTaskDaialog : DialogFragment() {
 
@@ -25,6 +26,7 @@ class AddTaskDaialog : DialogFragment() {
         var cancelButton:Button= view.findViewById(R.id.cancel_add_button)
 
         cancelButton.setOnClickListener {
+
             findNavController().popBackStack()
         }
     }
