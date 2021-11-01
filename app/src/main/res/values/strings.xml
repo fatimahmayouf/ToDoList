@@ -4,7 +4,7 @@
     <string name="taskTitle">Title</string>
     <string name="add_task">"+  Add Task "</string>
     <string name="Description">Description</string>
-    <string name="insert_button">Save</string>
+    <string name="insert_button">Add</string>
     <string name="Cancel_button">Cancel</string>
     <string name="update_button">Update</string>
     <string name="email_Example">Example@gamil.com</string>

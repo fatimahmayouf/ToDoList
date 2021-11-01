@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageView
-import androidx.navigation.fragment.findNavController
-import com.example.todoapplication.body.MainActivity
+import com.example.todoapplication.views.body.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -14,6 +13,8 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+        supportActionBar !!.hide()
 
         var intent = Intent(this, MainActivity :: class.java)
 

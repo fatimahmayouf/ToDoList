@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".body.AddTaskDaialog">
+    tools:context=".views.body.AddTaskDaialog">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/add_title_Edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/multiAutoCompleteTextView"
+        android:id="@+id/add_description_edittext"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginTop="4dp"
@@ -30,7 +30,7 @@
         android:hint="@string/Description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/add_title_Edittext" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -40,7 +40,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_baseline_calendar_today_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/add_description_edittext" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -50,7 +50,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_baseline_notifications_24"
         app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/add_description_edittext" />
 
     <ImageView
         android:id="@+id/imageView12"
@@ -60,10 +60,10 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_baseline_location_on_24"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/add_description_edittext" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/add_description_edittext" />
 
     <Button
         android:id="@+id/cancel_add_button"
@@ -82,9 +82,9 @@
         android:layout_marginEnd="14dp"
         android:text="@string/Cancel_button"
         app:cornerRadius="50dp"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/add_button"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/add_description_edittext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

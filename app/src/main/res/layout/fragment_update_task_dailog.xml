@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".body.UpdateTaskDailog">
+    tools:context=".views.body.UpdateTaskDailog">
 
 
     <EditText
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView2" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
@@ -75,11 +75,11 @@
         android:text="@string/update_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/button32"
+        app:layout_constraintStart_toEndOf="@+id/cancel_update_button"
         app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView2" />
 
     <Button
-        android:id="@+id/button32"
+        android:id="@+id/cancel_update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="168dp"

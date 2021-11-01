@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".body.MainActivity"
+            android:name="com.example.todoapplication.views.body.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
