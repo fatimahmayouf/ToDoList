@@ -1,86 +1,118 @@
 package com.example.todoapplication.views.body
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.Toast
+import android.widget.*
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.get
 import androidx.core.view.isInvisible
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapplication.R
 import com.example.todoapplication.Repository.TaskRepository
 import com.example.todoapplication.database.model.TasksModel
 import com.google.android.material.navigation.NavigationView
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
 
     private val taskItems = mutableListOf<TasksModel>()
+    private  val taskViewModel: TaskViewModel by viewModels()
+    private lateinit var selectedItem: TasksModel
 
     private lateinit var taskRecyclerView: RecyclerView
     private lateinit var taskRecyclerViewAdapter: TaskAdapter
 
     lateinit var toggle: ActionBarDrawerToggle
+
         override fun onCreate(savedInstanceState: Bundle?) {
+
+
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
 
-            TaskRepository.init(this)
+            val sdf = SimpleDateFormat("dd/M/yyyy")
+            val currentDate = sdf.format(Date())
+             val toDayTxt: TextView = findViewById(R.id.toDay_TextView)
+            toDayTxt.text = "Day date is $currentDate"
 
+
+            /*==========================================================
+                             declaration of recyclerview & adapter
+              ===========================================================*/
+
+            taskRecyclerView = findViewById(R.id.recyclerView)
+            taskRecyclerViewAdapter =
+                TaskAdapter(this, taskItems, taskViewModel, supportFragmentManager)
+            taskRecyclerView.adapter = taskRecyclerViewAdapter
+
+            /*==========================================================
+                             Edn declaration
+              ===========================================================*/
 
             // add task button open fragment dialog
             val addTaskButton: Button = findViewById(R.id.add_task_button)
+
             addTaskButton.setOnClickListener {
                 val fragmentAdd = AddTaskDaialog()
-                fragmentAdd.show(supportFragmentManager,"Add task dialog")
+                fragmentAdd.show(supportFragmentManager, "Add task dialog")
             }
 
+            taskViewModel.taskItems.observe(this, Observer {
+                it?.let { items ->
+                    taskItems.clear()
+                    taskItems.addAll(items)
+                    taskRecyclerViewAdapter.notifyDataSetChanged()
+
+                }
+            })
+            // End Add button (insert)
 
 
-            val drawer: DrawerLayout = findViewById(R.id.DrawerLayout)
-            val navView: NavigationView = findViewById(R.id.nav_view)
-            toggle = ActionBarDrawerToggle(this,drawer,R.string.open,R.string.close)
-            drawer.addDrawerListener(toggle)
-            toggle.syncState()
 
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            // delete task by swiping
+            // make task completed
+            val swipeItem = object : SwipeItem(this) {
 
-            var loginfragment = LoginFragment()
-            var registerfragment = RegisterFragment()
-            var fragmentlayout: FrameLayout = findViewById(R.id.fragment_layout)
-            var mainlayout: ConstraintLayout = findViewById(R.id.main_layout)
-             navView.setNavigationItemSelectedListener {
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
-                 when(it.itemId){
-                     R.id.password -> Toast.makeText(this, "password_clicked", Toast.LENGTH_SHORT).show()
-                     R.id.app_bar_switch -> Toast.makeText(this, "notification_clicked", Toast.LENGTH_SHORT).show()
-                     R.id.PrintItem -> Toast.makeText(this, "print_clicked", Toast.LENGTH_SHORT).show()
-                     R.id.ShareItem -> Toast.makeText(this, "share_clicked", Toast.LENGTH_SHORT).show()
-                     R.id.LogItem -> {supportFragmentManager.beginTransaction().replace(R.id.fragment_layout,loginfragment).commit()
-                         mainlayout.isInvisible
-                         // لم تزبط معنا
-                     }
-                     R.id.RegisterItem -> {supportFragmentManager.beginTransaction().replace(R.id.fragment_layout,registerfragment).commit()
-                         mainlayout.isInvisible
-                         // لم تزبط معنا
-                     }
+                    when (direction) {
 
-                 }
-                 true
-             }
+                        ItemTouchHelper.LEFT -> {
+                            val selected = mutableListOf(viewHolder.adapterPosition)
+                            taskRecyclerViewAdapter.delete(viewHolder.adapterPosition)
+                            /***
+                             * back here for completion
+                             */
+                            //taskRecyclerViewAdapter.update(selected.size,selected)
+
+                        }
+
+                        ItemTouchHelper.RIGHT ->taskRecyclerViewAdapter.delete(viewHolder.adapterPosition)
 
 
-            taskRecyclerView = findViewById(R.id.recyclerView)
-            taskRecyclerViewAdapter = TaskAdapter(this,taskItems)
-            taskRecyclerView.adapter = taskRecyclerViewAdapter
-
-
+                    }
+                }
+            }
+           val touchHelper = ItemTouchHelper(swipeItem)
+            touchHelper.attachToRecyclerView(taskRecyclerView)
+            // End delete and complete
         }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return toggle.onOptionsItemSelected(item)
-    }
-    }
+
+   }
+
+
+

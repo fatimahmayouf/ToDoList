@@ -27,31 +27,8 @@ class RegisterFragment : Fragment() {
 
         val fullnameEditText: EditText = view.findViewById(R.id.full_name_edittext)
         val emailEdittext: EditText = view.findViewById(R.id.email_edittext)
-        val passwordEditText: EditText = view.findViewById(R.id.password_edittext)
-        val registerButton: Button = view.findViewById(R.id.register_button)
+        val passwordEditText: EditText = view.findViewById(R.id.passwordLogin_edittext)
 
-        registerButton.setOnClickListener {
-        if(fullnameEditText.text.isNotEmpty() && emailEdittext.text.isNotEmpty()
-            && passwordEditText.text.isNotEmpty()){
-
-
-                var fullname = fullnameEditText.text.toString()
-                var email = emailEdittext.text.toString()
-                var password = passwordEditText.text.toString()
-
-
-            // back here
-
-
-                viewModel = TaskViewModel()
-                viewModel.addUser(fullname,email,password)
-                Toast.makeText(activity, "congratulation, you joined our team ", Toast.LENGTH_SHORT).show()
-
-
-        }else{
-            Toast.makeText(activity, "you must fill all form", Toast.LENGTH_LONG).show()
-        }
-    }
     }
 
 }

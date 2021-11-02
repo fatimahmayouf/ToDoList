@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import com.example.todoapplication.database.ToDoDatabase
 import com.example.todoapplication.database.model.TasksModel
-import com.example.todoapplication.database.model.UserModel
 import java.lang.Exception
 
 
@@ -37,13 +36,6 @@ class TaskRepository(context: Context) {
     suspend fun addTask(taskModel : TasksModel) = taskDao.addTask(taskModel)
     suspend fun updateTask(taskModel: TasksModel)= taskDao.updateTask(taskModel)
     suspend fun deleteTask(taskModel: TasksModel)= taskDao.deleteTask(taskModel)
-
-
-    //user functions
-
-    fun getUser() = taskDao.getUser()
-    suspend fun addUser(userModel : UserModel) = taskDao.addUser(userModel)
-    suspend fun updateUser(userModel: UserModel)= taskDao.updateUser(userModel)
 
 
 

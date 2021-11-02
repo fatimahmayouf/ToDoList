@@ -6,32 +6,11 @@ import androidx.room.PrimaryKey
 import androidx.room.Embedded
 
 
-@Entity
-data class UserModel (
-
-    var fullName: String,
-    var email: String,
-    var password: String,
-
-    var notivication: Boolean,
-
-    @DrawableRes
-    val userImage:Int,
-
-    @PrimaryKey(autoGenerate = true)
-    var userid: Int = 0,
-
-    @Embedded
-    val task: TasksModel? = null
-
-)
-
  @Entity
 data class TasksModel(
      var Title: String,
      var Description: String,
-     var compatibility: Boolean,
-
+     var creationDate: String,
 
      @DrawableRes
      val calender: Int,
@@ -40,6 +19,8 @@ data class TasksModel(
      val alarm: Int,
      @DrawableRes
      val location: Int,
+
+     var compatibility: Boolean = false,
 
      @PrimaryKey(autoGenerate = true)
      var id :Int = 0

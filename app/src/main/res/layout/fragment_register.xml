@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <EditText
-        android:id="@+id/password_edittext"
+        android:id="@+id/passwordLogin_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -182,7 +182,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_edittext" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordLogin_edittext" />
 
     <TextView
         android:id="@+id/textView11"
@@ -196,6 +196,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_edittext" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordLogin_edittext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

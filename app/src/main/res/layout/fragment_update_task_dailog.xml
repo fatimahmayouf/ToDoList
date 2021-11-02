@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout5"
+    android:id="@+id/update_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
@@ -10,29 +10,27 @@
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/update_title_edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/multiAutoCompleteTextView2"
+        android:id="@+id/update_description_edittext"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginTop="12dp"
         android:gravity="top|left"
-        android:text="Description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/update_title_edittext" />
 
     <ImageView
         android:id="@+id/imageView102"
@@ -42,7 +40,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_baseline_calendar_today_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/update_description_edittext" />
 
     <ImageView
         android:id="@+id/imageView112"
@@ -52,7 +50,7 @@
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_baseline_notifications_24"
         app:layout_constraintStart_toEndOf="@+id/imageView102"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/update_description_edittext" />
 
     <ImageView
         android:id="@+id/imageView122"
@@ -64,28 +62,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView112"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/update_description_edittext" />
 
     <Button
         android:id="@+id/update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="84dp"
         android:text="@string/update_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/cancel_update_button"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/update_description_edittext" />
 
     <Button
         android:id="@+id/cancel_update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="84dp"
         android:text="@string/Cancel_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView2" />
+        app:layout_constraintTop_toBottomOf="@+id/update_description_edittext" />
+
+    <TextView
+        android:id="@+id/dayDate_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textColor="@color/cardview_dark_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cancel_update_button"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

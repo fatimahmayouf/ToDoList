@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageView
+import com.example.todoapplication.Repository.TaskRepository
 import com.example.todoapplication.views.body.MainActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        TaskRepository.init(this)
         supportActionBar !!.hide()
 
         var intent = Intent(this, MainActivity :: class.java)
