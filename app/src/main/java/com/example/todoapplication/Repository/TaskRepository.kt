@@ -35,6 +35,7 @@ class TaskRepository(context: Context) {
 
     suspend fun addTask(taskModel : TasksModel) = taskDao.addTask(taskModel)
     suspend fun updateTask(taskModel: TasksModel)= taskDao.updateTask(taskModel)
+    suspend fun completeTask(complete: Boolean)= taskDao.updateComp(complete)
     suspend fun deleteTask(taskModel: TasksModel)= taskDao.deleteTask(taskModel)
 
 

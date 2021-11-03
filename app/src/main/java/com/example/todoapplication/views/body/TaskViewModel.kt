@@ -45,6 +45,14 @@ class TaskViewModel : ViewModel() {
         }
     }
 
+
+    fun updateComp(complete:Boolean){
+        viewModelScope.launch {
+            taskRepository.completeTask(complete)
+
+        }
+    }
+
     fun deletetask(taskModel: TasksModel){
         viewModelScope.launch {
             taskRepository.deleteTask(taskModel)

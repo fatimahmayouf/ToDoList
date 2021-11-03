@@ -16,6 +16,10 @@ interface TaskDao {
     @Query("SELECT * FROM TasksModel")
     fun getTask() : LiveData<List<TasksModel>>// because we will retrieve some thing
 
+
+    @Query("UPDATE TasksModel SET compatibility = :complete ")
+    suspend fun updateComp(complete: Boolean)
+
     @Update
     suspend fun updateTask(taskModel: TasksModel)
 

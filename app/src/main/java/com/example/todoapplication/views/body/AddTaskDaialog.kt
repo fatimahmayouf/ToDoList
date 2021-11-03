@@ -50,13 +50,16 @@ class AddTaskDaialog : DialogFragment() {
             //getting current day,month and year.
             val calendar: Calendar = Calendar.getInstance()
             val year: Int = calendar.get(Calendar.YEAR)
-            val month: Int = calendar.get(Calendar.MONTH)
+            val month1: Int = calendar.get(Calendar.MONTH)
+            val month: Int = +month1
             val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
 
 
             // create date picker dialog and put the test into date EditText
-            val dpd = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                dateText.setText("" + day + "/" + month + "/" + year)
+            val dpd = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener {
+
+                    view, year, month, day ->
+                dateText.setText("" + day + "/" + (month.toInt()+1).toString()  + "/" + year)
             }, year, month, day)
             dpd.show() }
 

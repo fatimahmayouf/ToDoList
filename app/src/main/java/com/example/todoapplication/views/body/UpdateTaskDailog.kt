@@ -1,15 +1,14 @@
 package com.example.todoapplication.views.body
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todoapplication.R
@@ -39,6 +38,8 @@ class UpdateTaskDailog:DialogFragment(){
         val date: TextView = view.findViewById(R.id.dayDate_textview)
         val update: TextView = view.findViewById(R.id.update_date_textview)
         val uptime: TextView = view.findViewById(R.id.update_time_textview)
+        val calenderIcon: ImageButton = view.findViewById(R.id.calender_icon_update)
+        val alarmIcon: ImageButton = view.findViewById(R.id.alarm_icon_update)
 
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
         var toDayDate = sdf.format(Date())
@@ -65,6 +66,36 @@ class UpdateTaskDailog:DialogFragment(){
 
                 }
             })
+        calenderIcon.setOnClickListener{
+
+            //getting current day,month and year.
+            val calendar: Calendar = Calendar.getInstance()
+            val year: Int = calendar.get(Calendar.YEAR)
+            val month1: Int = calendar.get(Calendar.MONTH)
+            val month: Int = +month1
+            val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
+
+            // create date picker dialog and put the test into date EditText
+            val dpd = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener {
+
+                    view, year, month, day ->
+                update.setText("" + day + "/" + (month.toInt()+1).toString()  + "/" + year)
+            }, year, month, day)
+            dpd.show()
+
+
+        }
+        alarmIcon.setOnClickListener{
+            val calendar = Calendar.getInstance()
+            val timeSetListener = TimePickerDialog.OnTimeSetListener { view, hour, minute ->
+                calendar.set(Calendar.HOUR_OF_DAY, hour)
+                calendar.set(Calendar.MINUTE, minute)
+                uptime.setText( SimpleDateFormat("HH:mm").format(calendar.time))
+            }
+            TimePickerDialog(view.context, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE), false).show()
+        }
+
 
         updateButton.setOnClickListener {
             var titlee = title.text.toString()
