@@ -37,6 +37,8 @@ class UpdateTaskDailog:DialogFragment(){
         val title: EditText = view.findViewById(R.id.update_title_edittext)
         val Description: EditText = view.findViewById(R.id.update_description_edittext)
         val date: TextView = view.findViewById(R.id.dayDate_textview)
+        val update: TextView = view.findViewById(R.id.update_date_textview)
+        val uptime: TextView = view.findViewById(R.id.update_time_textview)
 
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
         var toDayDate = sdf.format(Date())
@@ -55,6 +57,8 @@ class UpdateTaskDailog:DialogFragment(){
                     title.setText(item.Title)
                     Description.setText(item.Description)
                     date.setText(item.creationDate)
+                    update.setText(item.taskdate)
+                    uptime.setText(item.tasktime)
 
 
                     listTask = item
@@ -66,10 +70,15 @@ class UpdateTaskDailog:DialogFragment(){
             var titlee = title.text.toString()
             var Descriptionn = Description.text.toString()
             var dayDate = toDayDate.toString()
+            var updateDate = update.toString()
+            var updateTime = uptime.toString()
 
             listTask.Title = titlee
             listTask.Description = Descriptionn
             listTask.creationDate = dayDate
+            listTask.taskdate = updateDate
+            listTask.tasktime = updateTime
+
 
 
             taskViewModel.updateTask(listTask)

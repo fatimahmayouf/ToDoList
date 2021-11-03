@@ -110,9 +110,32 @@ class MainActivity : AppCompatActivity() {
            val touchHelper = ItemTouchHelper(swipeItem)
             touchHelper.attachToRecyclerView(taskRecyclerView)
             // End delete and complete
+
+
+            val drawer: DrawerLayout = findViewById(R.id.DrawerLayout)
+            val navView: NavigationView = findViewById(R.id.nav_view)
+            toggle = ActionBarDrawerToggle(this,drawer,R.string.open,R.string.close)
+            drawer.addDrawerListener(toggle)
+            toggle.syncState()
+
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+            /* navView.setNavigationItemSelectedListener {
+
+                 when(it.itemId){
+                     R.id.item3 ->
+                 }
+             }
+
+             */
         }
 
-   }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return toggle.onOptionsItemSelected(item)
+    }
+        }
+
+
 
 
 

@@ -3,7 +3,6 @@ package com.example.todoapplication.views.body
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.todoapplication.R
 import com.example.todoapplication.Repository.TaskRepository
 import com.example.todoapplication.database.model.TasksModel
 import kotlinx.coroutines.launch
@@ -20,17 +19,22 @@ class TaskViewModel : ViewModel() {
     var taskItems = taskRepository.getTask()
 
 
-    fun addTask( Title: String, Description: String, Date:String) {
+    fun addTask(
+        Title: String,
+        Description: String,
+        Date: String,
+        taskDate: String,
+        taskTime: String
+
+    ) {
 
         viewModelScope.launch {
             taskRepository.addTask(
                 TasksModel( Title,
                 Description,
                     Date,
-            R.drawable.ic_baseline_calendar_today_24,
-            R.drawable.ic_baseline_notifications_24,
-            R.drawable.ic_baseline_location_on_24)
-            )
+                    taskDate,
+                    taskTime))
         }
     }
 

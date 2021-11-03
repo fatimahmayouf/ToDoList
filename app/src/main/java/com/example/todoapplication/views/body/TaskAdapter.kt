@@ -1,7 +1,6 @@
 package com.example.todoapplication.views.body
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,9 +23,13 @@ class TaskAdapter(val context: Context, val task_list: MutableList<TasksModel>,
    class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
       val taskTitel: TextView = view.findViewById(R.id.task_title_textview)
       val completeCheckBox: CheckBox = view.findViewById(R.id.tesk_checkBox)
+
       val calender: ImageView = view.findViewById(R.id.calender_icon)
-      //val dayDate: TextView = view.findViewById(R.id.date_textview)
+      val dueDate: TextView = view.findViewById(R.id.date_recycler_textview)
+
       val alarm: ImageView = view.findViewById(R.id.alarm_icon)
+      val dueTime: TextView = view.findViewById(R.id.time_recycler_textview)
+
       val location: ImageView = view.findViewById(R.id.location_icon)
 
 
@@ -47,13 +50,12 @@ class TaskAdapter(val context: Context, val task_list: MutableList<TasksModel>,
 
       holder.apply {
          taskTitel.text = task.Title
+
          completeCheckBox.isChecked = task.compatibility
+         dueDate.text = task.taskdate
+         dueTime.text = task.tasktime
 
 
-         calender.setImageResource(task.calender)
-         //dayDate.text = task.date
-         alarm.setImageResource(task.alarm)
-         location.setImageResource(task.location)
       }
       holder.itemView.setOnClickListener {
          taskViewModel.selectedItemMutableLiveData.postValue(task)

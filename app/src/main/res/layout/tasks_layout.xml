@@ -41,11 +41,10 @@
             app:srcCompat="@drawable/ic_baseline_calendar_today_24" />
 
         <TextView
-            android:id="@+id/date_textview"
+            android:id="@+id/date_recycler_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="TextView"
             android:textSize="12sp" />
 
         <ImageView
@@ -54,6 +53,12 @@
             android:layout_height="15dp"
             android:layout_marginLeft="50dp"
             app:srcCompat="@drawable/ic_baseline_notifications_24" />
+
+        <TextView
+            android:id="@+id/time_recycler_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp" />
 
         <ImageView
             android:id="@+id/location_icon"

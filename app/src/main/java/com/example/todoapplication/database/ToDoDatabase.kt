@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.example.todoapplication.database.model.TasksModel
 
-@Database(entities = [TasksModel::class], version = 4)
+@Database(entities = [TasksModel::class], version = 6)
 
 abstract class ToDoDatabase:RoomDatabase () {
 
