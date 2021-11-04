@@ -6,7 +6,7 @@
 2. Android studio IDE
 3. Libraries
  
-    1. implementation "androidx.room:room-runtime:2.3.0" 4a
+    1. implementation "androidx.room:room-runtime:2.3.0" 
     2. implementation "androidx.room:room-ktx:2.3.0"
     3. kapt "androidx.room:room-compiler:2.3.0"
     4. implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01"
@@ -25,6 +25,7 @@ So, I can delete the task or update it.
 
 
 ### wireframes 
+
 ![Home screen Image](https://github.com/fatimahmayouf/ToDoList/blob/main/Design/Home%20.jpg)
 
 
@@ -43,6 +44,7 @@ So, I can delete the task or update it.
 
 
 ## planning and story of development process and problem-solving strategy
+
 ### Day one 
 desiging the application in figma
 ### Day two
@@ -65,8 +67,7 @@ Logic
 * Dialog fragment
 * drawer navigation
 * notification
-* share
-* printer
+
 
 
 
