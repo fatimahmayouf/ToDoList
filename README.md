@@ -34,10 +34,6 @@ So, I can delete the task or update it.
 
 
 
-
-
-
-
 ## planning and story of development process and problem-solving strategy
 
 
