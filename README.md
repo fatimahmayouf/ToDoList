@@ -30,6 +30,16 @@ So, I can delete the task or update it.
 ![Home screen Image](https://github.com/fatimahmayouf/ToDoList/blob/main/Design/Home%20.jpg)
 
 
+![splash screen Image](https://github.com/fatimahmayouf/ToDoList/blob/main/Design/splash.jpg)
+
+
+
+![Register screen Image](https://github.com/fatimahmayouf/ToDoList/blob/main/Design/Sign%20up.png)
+
+
+
+![Login screen Image](https://github.com/fatimahmayouf/ToDoList/blob/main/Design/Login.png)
+
 
 
 
