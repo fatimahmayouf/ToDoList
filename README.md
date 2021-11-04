@@ -27,7 +27,7 @@ So, I can delete the task or update it.
 
 
 ### wireframes 
-
+![Home screen Image](https://github.com/fatimahmayouf/ToDoList/blob/main/Design/Home%20.jpg)
 
 
 
@@ -54,11 +54,11 @@ Logic
 
 
 ## favorite functions work
-Dialog fragment
-drawer navigation
-notification
-share
-printer
+* Dialog fragment
+* drawer navigation
+* notification
+* share
+* printer
 
 
 
