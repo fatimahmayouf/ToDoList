@@ -35,15 +35,21 @@ So, I can delete the task or update it.
 
 
 ## planning and story of development process and problem-solving strategy
-
-
-
-
+### Day one 
+desiging the application in figma
+### Day two
+Desiging application in XML
+### Day three
+Structue of application (database, repository, views)
+### Rest days
+Logic 
 
 
 ## unsolved problems which would be fixed in future iterations
-
-
+* Login
+* Location
+* printing
+* sharing 
 
 
 
