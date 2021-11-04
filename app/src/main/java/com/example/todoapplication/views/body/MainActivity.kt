@@ -39,25 +39,18 @@ class MainActivity : AppCompatActivity() {
 
     private val taskItems = mutableListOf<TasksModel>()
     private  val taskViewModel: TaskViewModel by viewModels()
-    private lateinit var selectedItem: TasksModel
-
+   // private lateinit var selectedItem: TasksModel
     private lateinit var taskRecyclerView: RecyclerView
     private lateinit var taskRecyclerViewAdapter: TaskAdapter
-
-
     lateinit var toggle: ActionBarDrawerToggle
 
-
         override fun onCreate(savedInstanceState: Bundle?) {
-
-
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
 
-
             val sdf = SimpleDateFormat("dd/M/yyyy")
             val currentDate = sdf.format(Date())
-             val toDayTxt: TextView = findViewById(R.id.toDay_TextView)
+            val toDayTxt: TextView = findViewById(R.id.toDay_TextView)
             toDayTxt.text = "Day date is $currentDate"
 
 
@@ -71,8 +64,6 @@ class MainActivity : AppCompatActivity() {
             taskRecyclerView.adapter = taskRecyclerViewAdapter
             taskRecyclerViewAdapter
             //createNotificationChannel()
-
-
 
             /*==========================================================
                              Edn declaration
@@ -93,16 +84,11 @@ class MainActivity : AppCompatActivity() {
                     taskItems.addAll(items)
                     taskRecyclerViewAdapter.notifyDataSetChanged()
 
-
-
                 }
             })
             // End Add button (insert)
 
-
-
             // delete task by swiping
-            // make task completed
             val swipeItem = object : SwipeItem(this) {
 
                 @RequiresApi(Build.VERSION_CODES.Q)
@@ -115,18 +101,19 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         ItemTouchHelper.RIGHT ->taskRecyclerViewAdapter.delete(viewHolder.adapterPosition)
-
-
                     }
                 }
             }
            val touchHelper = ItemTouchHelper(swipeItem)
             touchHelper.attachToRecyclerView(taskRecyclerView)
-            // End delete and complete
-
+            // End delete
+           /*===========================================================================
+                            implement drawer navigation
+           =============================================================================
+            */
 
             val drawer: DrawerLayout = findViewById(R.id.DrawerLayout)
-            val navView: NavigationView = findViewById(R.id.nav_view)
+           // val navView: NavigationView = findViewById(R.id.nav_view)
             toggle = ActionBarDrawerToggle(this,drawer,R.string.open,R.string.close)
             drawer.addDrawerListener(toggle)
             toggle.syncState()
@@ -150,7 +137,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return toggle.onOptionsItemSelected(item)
     }
-
+           /*========================================================================
+                                     End Drawer
+             ==========================================================================
+           */
 
     fun createNotificationChannel(){
 

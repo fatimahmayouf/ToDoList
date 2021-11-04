@@ -47,6 +47,10 @@ class UpdateTaskDailog:DialogFragment(){
         val cancel_update: Button = view.findViewById(R.id.cancel_update_button)
         val updateButton : Button = view.findViewById(R.id.update_button)
 
+
+
+        //==================================================================================
+
         taskViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner,
             {
 
@@ -66,6 +70,9 @@ class UpdateTaskDailog:DialogFragment(){
 
                 }
             })
+
+        //================================================================================
+
         calenderIcon.setOnClickListener{
 
             //getting current day,month and year.
@@ -82,9 +89,9 @@ class UpdateTaskDailog:DialogFragment(){
                 update.setText("" + day + "/" + (month.toInt()+1).toString()  + "/" + year)
             }, year, month, day)
             dpd.show()
-
-
         }
+        //================================================================================
+
         alarmIcon.setOnClickListener{
             val calendar = Calendar.getInstance()
             val timeSetListener = TimePickerDialog.OnTimeSetListener { view, hour, minute ->
@@ -96,6 +103,7 @@ class UpdateTaskDailog:DialogFragment(){
                 calendar.get(Calendar.MINUTE), false).show()
         }
 
+        //====================================================================================
 
         updateButton.setOnClickListener {
             var titlee = title.text.toString()
@@ -110,13 +118,11 @@ class UpdateTaskDailog:DialogFragment(){
             listTask.taskdate = updateDate
             listTask.tasktime = updateTime
 
-
-
             taskViewModel.updateTask(listTask)
             Toast.makeText(activity, "Task updated", Toast.LENGTH_SHORT).show()
-            getDialog()?.dismiss()
-            //close fragment
 
+            //close dialog fragment
+            getDialog()?.dismiss()
         }
 
 
@@ -124,11 +130,7 @@ class UpdateTaskDailog:DialogFragment(){
             // close dialog
 
             getDialog()?.dismiss()
-            //findNavController().popBackStack()
-
 
         }
     }
-
-
 }

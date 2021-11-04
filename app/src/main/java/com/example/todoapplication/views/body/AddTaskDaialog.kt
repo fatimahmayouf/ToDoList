@@ -38,13 +38,13 @@ class AddTaskDaialog : DialogFragment() {
 
         val addButton: Button = view.findViewById(R.id.add_button)
         val cancelButton: Button = view.findViewById(R.id.cancel_add_button)
+
+
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
         val currentDate = sdf.format(Date())
 
 
-
-
-
+        //=============================================================
         calenderIcon.setOnClickListener {
 
             //getting current day,month and year.
@@ -62,7 +62,7 @@ class AddTaskDaialog : DialogFragment() {
                 dateText.setText("" + day + "/" + (month.toInt()+1).toString()  + "/" + year)
             }, year, month, day)
             dpd.show() }
-
+//============================================================================
         alarmIcon.setOnClickListener {
             val calendar = Calendar.getInstance()
             val timeSetListener = TimePickerDialog.OnTimeSetListener { view, hour, minute ->
@@ -73,7 +73,7 @@ class AddTaskDaialog : DialogFragment() {
             TimePickerDialog(view.context, timeSetListener, calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE), false).show()
         }
-
+//==============================================================================
         // add task to the recyclerview
         addButton.setOnClickListener {
             val title = titleEditText.text.toString()
@@ -96,7 +96,7 @@ class AddTaskDaialog : DialogFragment() {
         }
         // end
 
-
+//========================================================================================
         cancelButton.setOnClickListener {
             // close dialog
             getDialog()?.dismiss()

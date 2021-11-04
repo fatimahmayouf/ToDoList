@@ -33,10 +33,17 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
    val CHANNEL_ID = "Channel id"
    val CHANNEL_NAME = "Channel name"
    val NOTIFICATION_ID = 0
+   val notificationManager = NotificationManagerCompat.from(context)
+
 
 
    val sdf = SimpleDateFormat("dd/M/yyyy")
    val currentDate2 = sdf.format(Date())
+
+   /*==================================================================
+                          view holder class
+   ====================================================================
+    */
 
    class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
       val taskTitel: TextView = view.findViewById(R.id.task_title_textview)
@@ -44,6 +51,9 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
       val dueDate: TextView = view.findViewById(R.id.date_recycler_textview)
       val dueTime: TextView = view.findViewById(R.id.time_recycler_textview)
    }
+   // End
+
+
 
    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
       val taskLayout = LayoutInflater.from(parent.context).inflate(
@@ -53,8 +63,10 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
       )
       return TaskViewHolder(taskLayout)
    }
-   val notificationManager = NotificationManagerCompat.from(context)
-
+     /*===============================================================================
+                               on Bind function
+      ================================================================================
+  */
    @RequiresApi(Build.VERSION_CODES.M)
    override fun onBindViewHolder(holder: TaskAdapter.TaskViewHolder, position: Int) {
 
@@ -103,7 +115,7 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
 
       }
 
-
+       // notification
       if (holder.dueDate.text.toString()==currentDate2) {
          val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle(holder.taskTitel.text.toString())
@@ -116,12 +128,15 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
       }
 
    }
-
+         /*====================================================================
+                                  On Bind End here
+           ======================================================================
+ */
    override fun getItemCount(): Int {
       return task_list.size
    }
 
-
+    // to call in in the swipe
    fun delete(i: Int) {
       taskViewModel.deletetask(task_list[i])
       notifyDataSetChanged()

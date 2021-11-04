@@ -11,13 +11,13 @@ class TaskViewModel : ViewModel() {
 
 
     private val taskRepository = TaskRepository.get()
+    var selectedItemMutableLiveData = MutableLiveData<TasksModel>()
 
     /*========================================================================
                        Task entity
     ==========================================================================
      */
     var taskItems = taskRepository.getTask()
-
 
     fun addTask(
         Title: String,
@@ -45,13 +45,13 @@ class TaskViewModel : ViewModel() {
         }
     }
 
-
-    fun updateComp(complete:Boolean){
-        viewModelScope.launch {
-            taskRepository.completeTask(complete)
-
-        }
-    }
+//
+//    fun updateComp(complete:Boolean){
+//        viewModelScope.launch {
+//            taskRepository.completeTask(complete)
+//
+//        }
+//    }
 
     fun deletetask(taskModel: TasksModel){
         viewModelScope.launch {
@@ -63,8 +63,4 @@ class TaskViewModel : ViewModel() {
                            End task Entity
     =========================================================================
      */
-    var selectedItemMutableLiveData = MutableLiveData<TasksModel>()
-
-
-
 }

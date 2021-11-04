@@ -31,9 +31,9 @@ class SplashActivity : AppCompatActivity() {
                      * back to fix
                      */
                     rotation(360f)
-                    duration = 800
+                    duration = 700
                     rotationXBy(90f)
-                    rotationXBy(-90f)
+                    rotationYBy(-90f)
                 }
             }
 
