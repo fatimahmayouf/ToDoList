@@ -9,11 +9,9 @@
     1. implementation "androidx.room:room-runtime:2.3.0" 4a
     2. implementation "androidx.room:room-ktx:2.3.0"
     3. kapt "androidx.room:room-compiler:2.3.0"
-
-    4.implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01"
-    5.implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-rc01"
-
-    6.implementation "androidx.fragment:fragment-ktx:1.3.6"
+    4. implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01"
+    5. implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-rc01"
+    6. implementation "androidx.fragment:fragment-ktx:1.3.6"
   
 
 ## wireframes and user stories
