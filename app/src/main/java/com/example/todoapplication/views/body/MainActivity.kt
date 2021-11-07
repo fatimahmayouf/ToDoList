@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 TaskAdapter(this, taskItems, taskViewModel, supportFragmentManager)
             taskRecyclerView.adapter = taskRecyclerViewAdapter
             taskRecyclerViewAdapter
-            //createNotificationChannel()
+            createNotificationChannel()
 
             /*==========================================================
                              Edn declaration

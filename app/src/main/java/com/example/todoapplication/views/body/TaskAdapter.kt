@@ -37,9 +37,6 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
 
 
 
-   val sdf = SimpleDateFormat("dd/M/yyyy")
-   val currentDate2 = sdf.format(Date())
-
    /*==================================================================
                           view holder class
    ====================================================================
@@ -78,8 +75,11 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
          dueTime.text = task.tasktime
 
       }
+
 //========================================================================
-      val format = SimpleDateFormat("dd/MM/yyyy")
+        val sdf = SimpleDateFormat("dd/M/yyyy")
+        val currentDate2 = sdf.format(Date())
+      //val format = SimpleDateFormat("dd/MM/yyyy")
       var currentDate = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
          Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
       } else {
@@ -87,7 +87,7 @@ class TaskAdapter( val context: Context, val task_list: MutableList<TasksModel>,
          TODO("VERSION.SDK_INT < O")
       }
 
-     val deadline = format.parse(task.taskdate).toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+     val deadline = sdf.parse(task.taskdate).toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
 
       if (deadline.isBefore(currentDate)) {
          holder.dueDate.setTextColor(context.getColor(R.color.red))

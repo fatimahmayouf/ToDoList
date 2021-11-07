@@ -109,8 +109,8 @@ class UpdateTaskDailog:DialogFragment(){
             var titlee = title.text.toString()
             var Descriptionn = Description.text.toString()
             var dayDate = toDayDate.toString()
-            var updateDate = update.toString()
-            var updateTime = uptime.toString()
+            var updateDate = update.text.toString()
+            var updateTime = uptime.text.toString()
 
             listTask.Title = titlee
             listTask.Description = Descriptionn
